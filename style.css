@@ -19,35 +19,34 @@ html, body {
 }
 
 /* HEADER LAYOUT */
-.site-header {
-  padding: 18px;
-  max-width: var(--max-width);
-  margin: 18px auto;
-  background-color: var(--bg);
-}
-
-.header-container {
+header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.header-left {
-  flex: 1 1 65%;
-  min-width: 250px;
-}
-
-.header-left h1 {
-  margin: 0 0 4px;
-  font-size: 24px;
-}
-
-.header-left h3 {
+header h1 {
   margin: 0;
-  font-weight: 400;
-  color: var(--muted);
-  font-size: 14px;
+}
+
+header p {
+  margin: 4px 0;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 6px;
+}
+
+header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .Intro {

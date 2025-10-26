@@ -7,142 +7,114 @@
 }
 
 /* BASE */
+* { box-sizing: border-box; }
+
 html, body {
   height: 100%;
   margin: 0;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px;
 }
 
-/* HEADER LAYOUT */
-header {
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* LINKS */
+a { color: inherit; }
+a.external { color: #0a66c2; text-decoration: none; }
+
+/* ===== HEADER (shared CV + Cover) ===== */
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding-bottom: 12px;
+  margin-bottom: 22px;
 }
 
-header h1 {
+.site-id h1 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.meta {
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.tagline {
   margin: 0;
-}
-
-header p {
-  margin: 4px 0;
-}
-
-header nav a {
-  text-decoration: none;
-  color: #000;
-  margin: 0 6px;
-}
-
-header img {
-  width: 90px;
-  height: 90px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.Intro {
-  font-style: italic;
   color: var(--muted);
+  font-style: italic;
 }
 
-.top-nav {
-  margin-top: 8px;
-  font-size: 14px;
-}
+.sep { padding: 0 6px; color: #777; }
 
-.top-nav a {
-  color: var(--text);
+.tabs { margin-top: 8px; font-size: 14px; }
+.tabs a {
   text-decoration: none;
-  margin-right: 10px;
+  padding: 0 4px;
 }
-
-.top-nav a:hover {
+.tabs a:hover { text-decoration: underline; }
+.tabs a.active {
+  font-weight: 600;
   text-decoration: underline;
 }
 
-.header-right {
-  flex: 0 0 auto;
-}
-
-.portrait,
-.header-right .portrait {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* Headshot (single image) */
+.headshot {
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
   object-fit: cover;
+  flex: 0 0 auto;
+  border: 1px solid #ccc;
 }
 
-/* LETTER STYLE LAYOUT */
-.letter-header {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
+/* ===== LETTER STYLE ===== */
 .letter-content {
   max-width: 720px;
   margin: 60px auto 80px;
   padding: 0 30px;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
-.letter-content .date {
+.letter-content .date,
+.date {
   text-align: right;
   color: var(--muted);
   margin-bottom: 30px;
 }
 
-.letter-content p {
-  margin-bottom: 18px;
-}
+.letter-content p { margin-bottom: 18px; }
+.letter-content strong { font-weight: 700; }
 
-.letter-content strong {
-  font-weight: bold;
-}
-
-/* CONTENT */
+/* ===== CONTENT / CV UTILITIES ===== */
 .content {
   max-width: var(--max-width);
   margin: 0 auto 40px;
   padding: 0 18px;
 }
 
-.content.narrow {
-  max-width: 720px;
-}
+.content.narrow { max-width: 720px; }
 
-h2 {
-  margin-top: 28px;
-  margin-bottom: 12px;
-}
+h2 { margin: 28px 0 12px; }
 
-ul {
-  line-height: 1.6;
-  padding-left: 18px;
-}
+ul { line-height: 1.6; padding-left: 18px; }
+li { margin-bottom: 10px; }
 
-li {
-  margin-bottom: 10px;
-}
-
-.date {
-  text-align: right;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-/* SKILLS SECTION */
+/* SKILLS GRID */
 .skills-flex {
   display: flex;
   justify-content: space-between;
@@ -152,51 +124,26 @@ li {
 
 .skill-box,
 .grey-box {
-  background-color: var(--card);
+  background: var(--card);
   padding: 15px;
 }
 
-.grey-box {
-  margin: 20px 0;
-}
+.grey-box { margin: 20px 0; }
+.job-header { text-align: left; margin-bottom: 10px; }
 
-.job-header {
-  text-align: left;
-  margin-bottom: 10px;
-}
+/* FOOTER */
+footer { height: 40px; }
 
-/* LINKS */
-a.external {
-  color: #0a66c2;
-  text-decoration: none;
-}
-
-/* MEDIA QUERIES */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .skills-flex {
-    flex-direction: column;
+  .site-header {
+    align-items: flex-start;
+    gap: 16px;
   }
-
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .headshot {
+    width: 72px;
+    height: 72px;
   }
-
-  .header-left {
-    order: 2;
-  }
-
-  .header-right {
-    order: 1;
-    margin-bottom: 16px;
-  }
-
-  .top-nav {
-    margin-top: 8px;
-  }
+  .skills-flex { flex-direction: column; }
 }
 
-footer {
-  height: 40px; 
-}
